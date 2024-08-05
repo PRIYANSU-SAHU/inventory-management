@@ -77,7 +77,9 @@ export default function Home() {
   };
 
   useEffect(() => {
-    updateInventory();
+    if (typeof window !== "undefined") {
+      updateInventory();
+    }
   }, []);
 
   const handleOpen = () => setOpen(true);
