@@ -41,6 +41,9 @@ export default function Home() {
   const [itemName, setItemName] = useState("");
 
   const updateInventory = async () => {
+    if (typeof window === "undefined") {
+      return;
+    }
     const snapshot = query(collection(firestore, "inventory"));
     const docs = await getDocs(snapshot);
     const inventoryList = [];
