@@ -35,15 +35,14 @@ const style = {
   gap: 3,
 };
 
+
+
 export default function Home() {
   const [inventory, setInventory] = useState([]);
   const [open, setOpen] = useState(false);
   const [itemName, setItemName] = useState("");
 
   const updateInventory = async () => {
-    if (typeof window === "undefined") {
-      return;
-    }
     const snapshot = query(collection(firestore, "inventory"));
     const docs = await getDocs(snapshot);
     const inventoryList = [];
